@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//recursive method
 int fibonacci_recursive(int n)
 {
     if (n <= 1)
@@ -9,6 +10,7 @@ int fibonacci_recursive(int n)
     return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);
 }
 
+//itersive method
 int fibonacci_itersive(int n)
 {
     int a = 0;
