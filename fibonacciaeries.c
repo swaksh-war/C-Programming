@@ -1,13 +1,21 @@
 #include <stdio.h>
 
 //recursive method
-int fibonacci_recursive(int n)
+int fib(int n)
 {
-    if (n <= 1)
+    if(n==1)
     {
-        return n;
+        return 0;
     }
-    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);
+    else if(n==2)
+    {
+        return 1;
+    }
+    else
+    {
+        return (fib(n-1)+fib(n-2));
+    }
+    
 }
 
 //itersive method
@@ -29,7 +37,7 @@ int main()
     int num;
     printf("Enter the index number you want: \n");
     scanf("%d", &num);
-    printf("The fibonacci series by recursive method of %d index is %d \n", num, fibonacci_recursive(num));
+    printf("The fibonacci series by recursive method of %d index is %d \n", num, fib(num));
     printf("The fibonacci serues by itersive method of index %d is %d \n", num, fibonacci_itersive(num));
     return 0;
 }
