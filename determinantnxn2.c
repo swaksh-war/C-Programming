@@ -42,6 +42,6 @@ int cofactor_of_the_matrix(int b[10][10],int k)
 int determinant_value()
 {
     int det=0, s=1;
-    det = det + s*(a[0][c]*cofactor_of_the_matrix);
+    det = det + s*(a[0][c] * cofactor_of_the_matrix());
     s = -1 * s;
 }
