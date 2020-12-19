@@ -1,40 +1,77 @@
-#include <stdio.h>
-int main()
+#include<stdio.h>
+
+void main()
+
 {
-    int array[100], n, first, last, mid, search, flag = 0;
-    printf("enter the number of elements");
-    scanf("%d", &n); //n=4
-    for (int i = 0; i <= n - 1; i++)
-    {
-        scanf("%d", &array[i]);
-    }
-    printf("enter the element you want to search");
-    scanf("%d", &search); //search=4
-    /*binary search*/
-    first = 0, last = n - 1;
-    while (first <= last)
-    {
-        mid = (first + last) / 2;
-        if (search == array[mid])
-        {
-            flag = 1;
-            break;
-        }
-        else if (search < array[mid])
-        {
-            last = mid - 1;
-        }
-        else
-        {
-            first = mid + 1;
-        }
-    }
-    if (flag == 0)
-    {
-        printf("element not found");
-    }
-    else
-    {
-        printf("%d value found at %d", search, mid + 1);
-    }
+
+int *a[100],i,no,*srchno,top,bottom,mid,j,*temp;
+
+printf("\n Enter the number of elements\n");
+
+scanf("%d",&no);
+
+printf("\n Enter %d numbers\n",no);
+
+
+for(i=0;i<no;++i)
+{
+    scanf("%d",&a[i]);
 }
+
+printf("Enter the search number\n");
+
+ scanf("%d",&srchno);
+
+for(i=0;i<no-1;++i)
+
+    {for(j=i+1;j<no;++j)
+
+        {if(a[i]>a[j])
+
+            {
+
+                temp=a[i];
+
+                a[i]=a[j];
+
+                a[j]=temp;
+
+            }
+        }
+    }
+printf("\n Sorted array in ascending order\n");
+
+for(i=0;i<no;++i)
+
+printf("%5d",a[i]);
+
+bottom=0;
+
+top=no-1;
+
+while(top!=bottom+1)
+
+{
+
+  mid=(bottom+top)/2;
+
+  if (a[mid]<=srchno)
+
+  bottom=mid;
+
+  else
+
+  top=mid;
+
+}
+
+if(a[bottom]==srchno)
+
+  printf("\n search number is present in index  %d",mid);
+
+else
+
+  printf("\n Search number is not present");
+
+}
+
