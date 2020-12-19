@@ -72,4 +72,5 @@ int main()
     scanf("%d", &srch);
     res = binarysearch(&a, n, srch);
     printf("\nThe index of the searched number %d", res);
+    return 0;
 }
