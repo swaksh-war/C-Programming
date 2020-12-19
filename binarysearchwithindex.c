@@ -11,28 +11,31 @@ void swaparr(int *p1, int *p2)
 
 int insearch(int a[], int n, int srch)
 {
-    int top, bottom, mid;
-    bottom = 0;
-    top = n - 1;
-    mid = (bottom + top) / 2;
-    while (top != bottom)
+    int first,last,mid;
+    first=0;
+    last=n;
+    while ( first <= last ) 
     {
-        if (a[mid] == srch)
+        mid = (first+last)/2;
+        if ( srch > a[mid] ) 
+        {
+        first = mid + 1;
+        continue;
+        }
+        if ( srch < a[mid] ) 
+        {
+        last = mid - 1;
+        continue;
+        }
 
-            return mid;
-
-        else if (a[mid] < srch)
-
-            bottom = mid + 1;
-
-        else
-
-            top = mid - 1;
+        return mid;
     }
-    return -1;
+
+  return -1;
 }
 
-int binarysearch(int a[], int n, int srch)
+
+int binarysearch(int *a[], int n, int srch)
 {
     int i, index;
     for (i = 0; i < n; i++)
@@ -67,6 +70,6 @@ int main()
     }
     printf("\n Enter the number you want to search: ");
     scanf("%d", &srch);
-    res = binarysearch(a, n, srch);
+    res = binarysearch(&a, n, srch);
     printf("\nThe index of the searched number %d", res);
 }

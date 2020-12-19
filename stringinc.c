@@ -1,0 +1,1 @@
+//strcpy.strncpy,strcat,strncat,strcmp,strncmp,strlen,strupr,stelwr,srtrev
