@@ -1,44 +1,61 @@
 #include <stdio.h>
-void swaparr(int *p1,int *p2)
-{
-    int pot;
-    pot=*p1;
-    *p1=*p2;
-    *p2=pot;
-}
-int partition(int arr[],int start,int end,int pivot)
-{
-    while(start<=end)
-    {
-        while(arr[start]<=pivot)
-        {
-            start++;
-        }
-        while(arr[end]>pivot)
-        {
-            end--;
-        }
-        if(start<=end)
-        {
-            swaparr(&start,&end);
-            start++;
-            end--;
-        }
-    }
-    return start;
-}
-
-void quicksort(int arr[],int start, int end)
-{
-    int pivot=arr[(start+end)/2];
-    int pivotposition=partition(arr,start,end,pivot);
-    quicksort(arr,start,pivot);
-    quicksort(arr,pivot+1,end);
-        printarr(arr,end+1);
-}
+int BinarySearch(int , int , int *, int );
 
 int main()
 {
-    arr[]={4,3,2,1}
-    
+    int n, i, a[20], h, l, x, r;
+    int *p;
+
+    printf("Enter the number of elements:\n");
+    scanf("%d",&n);
+
+    printf("Enter the elements:\n");
+    for( i=0 ; i<n ; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+    p = &a[0];
+    printf("Enter the element to be searched:\n");
+    scanf("%d",&x);
+
+    l = 0;
+    h = n-1;
+
+    r = BinarySearch(l, h, p, x);
+
+    if(r==1)
+    printf("The element %d is found in position %d", x, i);
+    else
+    printf("The element %d is not present in the array", x);
+
+    return 0;
+}
+
+int BinarySearch(int l, int h, int *p, int x)
+{
+    int mid, a[20], f =0;
+    *p =a[0];
+    mid = ( l + h )/2;
+
+    while( l <= h )
+    {
+        if( a[mid] == x )
+        {
+            f=1;
+            break;
+        }
+        else if( a[mid] > x )
+        {
+            h = mid-1;
+        }
+        else if( a[mid] < x )
+        {
+            l = mid+1;
+        }
+    }
+    if(f == 1)
+    {return 1;}
+    else
+    {return -1;}
 }
