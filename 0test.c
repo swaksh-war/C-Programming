@@ -1,20 +1,10 @@
 #include <stdio.h>
 int main()
 {
-    int n;
-    printf("Enter the size of the array: ");
-    scanf("%d",&n);
-
-    int a[n];
-    for(int i=0;i<n;i++)
-    {
-        printf("Enter the %d value in the array: ",i+1);
-        scanf("%d",&a[i]);
-
-    }
-    printf("The final array is---\n");
-    for(int i=0;i<n;i++)
-    {
-        printf("%6d",a[i]);
-    }
+    char p;
+    char buf[10]={1,2,3,4,5,6,9,8};
+    p=(buf+1)[5];
+    printf("%d",p);
+    return 0;
 }
+    
